@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1281650932039517045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.41519
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.060288735
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.365151
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97115314
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.14190607
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.027707841
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.18962228
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -15.374
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 6.409
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -22.962
+      objectReference: {fileID: 0}
+    - target: {fileID: 364111982436210763, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 364111982436210763, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9331ed0b072f744f596e6a4853d198bf, type: 2}
+    - target: {fileID: 919132149155446097, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_Name
+      value: Ayran_Bottle_voll 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      propertyPath: m_TagString
+      value: AyranTag
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 42b118c71e0864876ad72666f84dc069,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6952638610851415933}
+  m_SourcePrefab: {fileID: 100100000, guid: 42b118c71e0864876ad72666f84dc069, type: 3}
+--- !u!1 &2091991753934421540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 42b118c71e0864876ad72666f84dc069,
+    type: 3}
+  m_PrefabInstance: {fileID: 1281650932039517045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6952638610851415933
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091991753934421540}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88212e0f1336047008d2fc6d1504b42a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
