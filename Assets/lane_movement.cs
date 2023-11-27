@@ -12,9 +12,9 @@ public class lane_movement : MonoBehaviour
 
     //movement speed
     public float moveSpeed = 5.0f;
+    public float speedIncreasePerPoint = 0.01f;
 
- 
-   
+
 
     private void Start()
     {
