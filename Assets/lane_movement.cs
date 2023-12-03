@@ -91,7 +91,7 @@ public class lane_movement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, initialYPosition, transform.position.z);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         canJump = true; // Enable jumping again
-        Debug.Log("Resetting position.");
+        //Debug.Log("Resetting position.");
     }
 
 
