@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class collision : MonoBehaviour
 {
-    public static int score = 0;
-    public static int highScore = 0;
+    public static int score;
+    public static int highScore; //We pass the PlayerPrefs(HighScore) to this variable and then use it to show actual highScore
     static collision inst;
 
     [SerializeField] TMP_Text scoreText;
@@ -21,22 +21,28 @@ public class collision : MonoBehaviour
         scoreText.text = "Score: " + score;
         // increase the moveSpeed of the Player when he collects a Coin
         lane_movement.moveSpeed += lane_movement.speedIncreasePerPoint;
+        //by each score increment we also check if current highScore in PlayerPrefs is exceeded
+        HighScoreSet();
     }
 
     public void HighScoreSet()
     {
-        //if (score > PlayerPrefs.GetInt(HighScore)){
+        //We pass the PlayerPrefs(HighScore) to int highScore
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        //We change the highScoreText to the PlayerPrefs(HighScore) with a String value of it
+        highScoreText.text = "HighScore: " + highScore.ToString();
+        //if the current score is greater than the HighScore in PlayerPrefs
         if (score > highScore){
-        //PlayerPrefs.SetInt(highScore, score);
-        highScore = score;
-        highScoreText.text = "HighScore: " + highScore;
-    }}
+        //We change the HighScore in PlayerPrefs with the new score
+        PlayerPrefs.SetInt("HighScore", score);
+        }
+    }
     public static collision Instance { get; private set; }
 
     private void Awake()
     {
         scoreText = GameObject.Find("Score").GetComponent<TMP_Text>();
-
+        HighScoreSet();
         if (Instance == null)
         {
             Instance = this;
@@ -46,7 +52,13 @@ public class collision : MonoBehaviour
         }
     }
 
+    private void Start(){
+        //when we start we dont want to show highScore as 0 so we check the PlayerPrefs and show the old highScore
+        HighScoreSet();
+    }
+
     private void Update(){
+        //each update checks if HighScore is exceeded
         HighScoreSet();
     }
 
