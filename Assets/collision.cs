@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class collision : MonoBehaviour
 {
-    int score;
+    public static int score;
     static collision inst;
 
     [SerializeField] TMP_Text scoreText;

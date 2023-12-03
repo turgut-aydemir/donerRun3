@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/PauseMen\xFC.unity"
     guid: a0e06e56099c19c4cb428d0acee7123e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 349e53dcde59a4f45ab712a92fd28488
   m_configObjects: {}
