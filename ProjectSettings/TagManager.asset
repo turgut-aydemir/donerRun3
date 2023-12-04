@@ -16,11 +16,12 @@ TagManager:
   - Pothole
   - Puddle
   - Ground
+  - Ayrab
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreCollision
   - Water
   - UI
   - 

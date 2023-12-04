@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3264793362191772551}
   - component: {fileID: -2558914223786246836}
+  - component: {fileID: 4772987366175536865}
+  - component: {fileID: -3979950923402993526}
   m_Layer: 0
   m_Name: RatParent
   m_TagString: Rat
@@ -45,6 +47,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e213f52b5e2204eb32c0d45e2dffb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &4772987366175536865
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290875473910448098}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -331776328379696321, guid: 086d13cab754c441c8f0eec2d6fec099, type: 3}
+--- !u!33 &-3979950923402993526
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290875473910448098}
+  m_Mesh: {fileID: -331776328379696321, guid: 086d13cab754c441c8f0eec2d6fec099, type: 3}
 --- !u!1 &7440474738742156752
 GameObject:
   m_ObjectHideFlags: 0

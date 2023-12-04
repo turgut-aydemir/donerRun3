@@ -6,19 +6,41 @@ using UnityEngine.UI;
 
 public class collision : MonoBehaviour
 {
-    int score;
+    public Animator animator;
+    private Transform Player;
+    private AudioSource audioSource;
+    private AudioSource audioSource2;
+
     static collision inst;
+    private int puddleContact = 0;
+    private int score = 0;
+    public float initialSpeed = 6f;
+    public float speedIncrement = 1.1f;
+    public float maxSpeed = 36f;
 
     [SerializeField] TMP_Text scoreText;
     [SerializeField] lane_movement lane_movement;
 
-    //ScoreIncrement method to use later on collision with a NewCoin
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameObject doenerMann = GameObject.Find("Donermannblend");
+        Player = GetComponent<Transform>();
+        animator = doenerMann.GetComponent<Animator>();
+        audioSource = GameObject.Find("AudioItems").GetComponent<AudioSource>();
+        audioSource2 = GameObject.Find("AudioGameover").GetComponent<AudioSource>();
+
+        //Call periodically to increase score
+        InvokeRepeating("IncreasePoints", 0f, 2f);
+    }
+
+
     public void ScoreIncrement()
     {
-        score++;
-        scoreText.text = "SCORE: " + score;
-        // increase the moveSpeed of the Player when he collects a Coin
-        lane_movement.moveSpeed += lane_movement.speedIncreasePerPoint;
+        this.score += 5;
+        scoreText.text = "SCORE: " + this.score;
+
     }
     public static collision Instance { get; private set; }
 
@@ -36,14 +58,85 @@ public class collision : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        //Check if the Player collides with an Ayran Bottle
-        
-        //Check if the Player collides with a Coin
+       
         if (other.gameObject.CompareTag("NewCoin"))
         {
-            Debug.Log("Sexy Score");
-            Instance?.ScoreIncrement();//increase Score by 1
-            Destroy(other.gameObject);//destroy Coin after collision
+            audioSource.Play();
+            this.score += 5;
+            scoreText.text = "SCORE: " + this.score;
+
+            Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Ayrab"))
+        {
+            audioSource.Play();
+            this.score += 50;
+            scoreText.text = "SCORE: " + this.score;
+
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Trashcan") ||
+            other.gameObject.CompareTag("Bird") ||
+            other.gameObject.CompareTag("Rat") ||
+            other.gameObject.CompareTag("Pothole"
+            ))
+        {
+            playGameOverAnimation();
+
+        }
+
+
+        if (other.gameObject.CompareTag("Puddle"))
+        {
+            if (puddleContact == 1)
+            {
+                playGameOverAnimation();
+            }
+            else
+            {
+                animator.Play("DonerMannChaseAnim", 0, 0.0f);
+                puddleContact++;
+            }
+        }
+
     }
+
+    private void IncreasePoints()
+    {
+        if (move.isMovementAllowed)
+        {
+            score++;
+            scoreText.text = "SCORE: " + score;
+
+            if (score % 5 == 0)
+            {
+                move.speedIncreasementFactor += 2.0f;
+            }
+        }
+        
+    }
+
+    private void playGameOverAnimation() {
+        audioSource2.Play();
+        wall_trigger_script.generateRoad = false;
+        move.isMovementAllowed = false;
+
+        if (lane_movement.currentLane == 0)
+        {
+            animator.Play("ChaseRightAnim", 0, 0.0f);
+        }
+        else if (lane_movement.currentLane == 1)
+        {
+            animator.Play("ChaseMidAnim", 0, 0.0f);
+        }
+        else
+        {
+            animator.Play("ChaseLeftAnim", 0, 0.0f);
+        }
+
+    }
+
+   
 }

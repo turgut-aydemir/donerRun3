@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 979027458769853136}
   - component: {fileID: 8593573600413108956}
   - component: {fileID: 1712519666934717858}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: street
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 7504488802053482752}
   - component: {fileID: 7876669506300924271}
   - component: {fileID: 4807221635339639972}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sidewalk right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 4676399721421632743}
   - component: {fileID: 5539756040407818316}
   - component: {fileID: 9014325273102956315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sidewalk left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
