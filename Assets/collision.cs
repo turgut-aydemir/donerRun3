@@ -139,7 +139,10 @@ public class collision : MonoBehaviour
         }
         
     }
-
+    IEnumerator EndGameWaiter()
+    {
+        yield return new WaitForSeconds(5);
+    }
     private void playGameOverAnimation() {
         audioSource2.Play();
         wall_trigger_script.generateRoad = false;
@@ -159,10 +162,6 @@ public class collision : MonoBehaviour
         }
         PlayerPrefs.Save();
         StartCoroutine(EndGameWaiter());
-        IEnumerator EndGameWaiter()
-        {
-            yield return new WaitForSeconds(3);
-        }
         SceneManager.LoadScene(2);
     }
 
