@@ -12,7 +12,7 @@ public class endGameScores : MonoBehaviour
     private static int endHighScore;
 
     void Start() {
-        // (no) Changes just a comment for: finalCommit - Abgabe into master Branch
+        // (no) Changes just a comment for: finalCommit - Abgabe into master Branch again
         endScore = collision.score;
         endHighScore = collision.highScore;
 
