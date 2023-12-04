@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class collision : MonoBehaviour
 {
@@ -37,9 +38,9 @@ public class collision : MonoBehaviour
         //We check HighScore at the Start to show on the main playScreen
         HighScoreSet();
     }
+        
 
-
-    public void ScoreIncrement()
+        public void ScoreIncrement()
     {
         this.score += 5;
         scoreText.text = "Score: " + this.score;
@@ -114,6 +115,7 @@ public class collision : MonoBehaviour
             if (puddleContact == 1)
             {
                 playGameOverAnimation();
+                
             }
             else
             {
@@ -155,7 +157,13 @@ public class collision : MonoBehaviour
         {
             animator.Play("ChaseLeftAnim", 0, 0.0f);
         }
-
+        PlayerPrefs.Save();
+        StartCoroutine(EndGameWaiter());
+        IEnumerator EndGameWaiter()
+        {
+            yield return new WaitForSeconds(3);
+        }
+        SceneManager.LoadScene(2);
     }
 
    
