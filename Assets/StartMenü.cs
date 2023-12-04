@@ -15,7 +15,9 @@ public class StartMenü : MonoBehaviour
     // Play button will start the 1st Level
     public void OnPlayButton()
     {
-        SceneManager.LoadScene(1);
+        collision.score = 0;
+        SceneManager.LoadSceneAsync(1);
+        //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Quit button exits the app

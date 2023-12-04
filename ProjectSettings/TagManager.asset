@@ -3,12 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NewCoin
+  - obsticle_e
+  - obsticle_test
+  - AyranTag
+  - section_trigger_collider
+  - destroy_trigger
+  - Rat
+  - Trashcan
+  - Bird
+  - Pothole
+  - Puddle
+  - Ground
+  - Ayrab
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreCollision
   - Water
   - UI
   - 

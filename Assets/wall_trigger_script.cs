@@ -5,15 +5,45 @@ using UnityEngine;
 public class wall_trigger_script : MonoBehaviour
 {
     public GameObject roadSection;
+    public GameObject[] objects = new GameObject[7];
     public GameObject objes;
+    public static bool generateRoad = true;
 
     // Keep track of instantiated positions
     private List<Vector3> instantiatedPositions = new List<Vector3>();
 
+
+    private void Awake()
+    {
+        //not needed, but here as backup
+        /*
+        objects = new GameObject[] {
+        GameObject.FindGameObjectWithTag("Bird"),
+        GameObject.FindGameObjectWithTag("NewCoin"),
+        GameObject.FindGameObjectWithTag("Puddle"),
+        GameObject.FindGameObjectWithTag("Pothole"),
+        GameObject.FindGameObjectWithTag("Ayrab"),
+        GameObject.FindGameObjectWithTag("Rat"),
+        GameObject.FindGameObjectWithTag("Trashcan")
+        Resources.Load("Bird") as GameObject,
+        Resources.Load("NewCoin") as GameObject,
+        Resources.Load("Puddle") as GameObject,
+        Resources.Load("Pothole") as GameObject,
+        Resources.Load("Ayrab") as GameObject,
+        Resources.Load("Rat") as GameObject,
+        Resources.Load("Trashcan") as GameObject
+        };
+        */
+        
+    }
+       
+    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("section_trigger_collider"))
+        if (other.gameObject.CompareTag("section_trigger_collider") && generateRoad)
         {
+
             // Instantiate road section
             Instantiate(roadSection, new Vector3(0, 0, -21), Quaternion.identity);
 
@@ -31,6 +61,9 @@ public class wall_trigger_script : MonoBehaviour
                         GetRandomFromArray(new float[] { -21f, -24f, -27f, -30f})
                     );
                 } while (PositionAlreadyUsed(randomSpawnPosition));
+
+                int randomNumber = Random.Range(0, 7);
+                objes = objects[randomNumber];
 
                 // Instantiate objes at the new position
                 Instantiate(objes, randomSpawnPosition, Quaternion.identity);

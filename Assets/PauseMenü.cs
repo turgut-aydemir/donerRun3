@@ -1,38 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class PauseMenü : MonoBehaviour
 {
-  public static bool GamePaused = false;
-  public GameObject pauseMenuUI;
+    public static bool GamePaused = false;
+    public GameObject pauseMenuUI;
 
-    private void Start()
-    {
-        pauseMenuUI.SetActive(false);
-    }
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
+       if (Input.GetKeyDown(KeyCode.P))
         {
-            if (GamePaused) {
+            if (GamePaused) { 
                 Resume();
             }
-            else { 
+            else {
                 Pause(); 
             }
         } 
     }
-
+    
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
-        SceneManager.LoadScene(1);
     }
 
     void Pause()
@@ -44,7 +42,10 @@ public class PauseMenü : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
+        move.isMovementAllowed = true;
+        wall_trigger_script.generateRoad = true;
+        lane_movement.currentLane = 1;
         Time.timeScale = 1f;
     }
 
