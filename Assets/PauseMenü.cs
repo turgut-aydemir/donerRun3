@@ -4,24 +4,22 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class PauseMenü : MonoBehaviour
 {
   public static bool GamePaused = false;
   public GameObject pauseMenuUI;
 
-    private void Start()
-    {
-        pauseMenuUI.SetActive(false);
-    }
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
+       if (Input.GetKeyDown(KeyCode.P))
         {
-            if (GamePaused) {
+            if (GamePaused) { 
                 Resume();
             }
-            else { 
+            else {
                 Pause(); 
             }
         } 
@@ -32,7 +30,6 @@ public class PauseMenü : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
-        SceneManager.LoadScene(1);
     }
 
     void Pause()
