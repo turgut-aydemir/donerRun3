@@ -114,8 +114,10 @@ public class collision : MonoBehaviour
         {
             if (puddleContact == 1)
             {
+              
                 playGameOverAnimation();
                 
+
             }
             else
             {
@@ -141,8 +143,10 @@ public class collision : MonoBehaviour
     }
     IEnumerator EndGameWaiter()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(2);
     }
+
     private void playGameOverAnimation() {
         audioSource2.Play();
         wall_trigger_script.generateRoad = false;
@@ -162,7 +166,7 @@ public class collision : MonoBehaviour
         }
         PlayerPrefs.Save();
         StartCoroutine(EndGameWaiter());
-        SceneManager.LoadScene(2);
+        
     }
 
    
