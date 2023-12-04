@@ -30,6 +30,17 @@ public class lane_movement : MonoBehaviour
         audioSource = GameObject.Find("AudioMovement").GetComponent<AudioSource>();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Trashcan") ||
+            other.gameObject.CompareTag("Bird") ||
+            other.gameObject.CompareTag("Rat") ||
+            other.gameObject.CompareTag("Pothole"))
+        {
+            moveSpeed = 0;
+        }
+    }
+
     private void Update()
     {
 
