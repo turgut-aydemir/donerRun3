@@ -14,7 +14,7 @@ public class collision : MonoBehaviour
 
     static collision inst;
     private int puddleContact = 0;
-    private int score = 0;
+    public static int score = 0;
     public static int highScore; //We pass the PlayerPrefs(HighScore) to this variable and then use it to show actual highScore
     public float initialSpeed = 6f;
     public float speedIncrement = 1.1f;
@@ -39,13 +39,6 @@ public class collision : MonoBehaviour
         HighScoreSet();
     }
         
-
-        public void ScoreIncrement()
-    {
-        this.score += 5;
-        scoreText.text = "Score: " + this.score;
-    
-    }
 
     public void HighScoreSet()
     {
@@ -87,16 +80,16 @@ public class collision : MonoBehaviour
         if (other.gameObject.CompareTag("NewCoin"))
         {
             audioSource.Play();
-            this.score += 5;
-            scoreText.text = "Score: " + this.score;
+            score += 5;
+            scoreText.text = "Score: " + score;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Ayrab"))
         {
             audioSource.Play();
-            this.score += 50;
-            scoreText.text = "Score: " + this.score;
+            score += 50;
+            scoreText.text = "Score: " + score;
             Destroy(other.gameObject);
         }
 
@@ -144,7 +137,7 @@ public class collision : MonoBehaviour
     IEnumerator EndGameWaiter()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2);
     }
 
     private void playGameOverAnimation() {
