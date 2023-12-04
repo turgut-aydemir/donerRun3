@@ -46,6 +46,7 @@ public class PauseMenü : MonoBehaviour
         move.isMovementAllowed = true;
         wall_trigger_script.generateRoad = true;
         lane_movement.currentLane = 1;
+        move.speedIncreasementFactor = 1.0f;
         Time.timeScale = 1f;
     }
 
